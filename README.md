@@ -7,7 +7,6 @@ create the Full Demo version.
 
 Be sure to make your own edits or generate a custom
 Telegraf config.
-
 ## PHP Read Files
 PHP-file-demo is a set of files to just throw in data about
 how long a file takes to be "processed". This processing is
