@@ -17,6 +17,7 @@ a mechanism to throw exec times into a UDP localhost endpoint.
 Runs on PHP 7.1.
 
 Run in background (and run multiples) with:
+
 `nohup php read_files1.php &`
 
 ## See the slides at:
@@ -24,5 +25,7 @@ Run in background (and run multiples) with:
 
 ## Other Helpful Links
 [InfluxDB Documentation v1.2](https://docs.influxdata.com/influxdb/v1.2/)
+
 [Telegraf Documentation v1.2](https://docs.influxdata.com/telegraf/v1.2/)
+
 [Grafana Documentation](http://docs.grafana.org/)
