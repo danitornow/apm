@@ -1,0 +1,5 @@
+PHP Warning:  fopen(/var/data/3/.test3.txt.swp): failed to open stream: No such file or directory in /var/www/read_files3.php on line 18
+PHP Warning:  fopen(/var/data/3/.test.txt.swp): failed to open stream: No such file or directory in /var/www/read_files3.php on line 18
+PHP Warning:  fopen(/var/data/2/.test2.txt.swp): failed to open stream: No such file or directory in /var/www/read_files2.php on line 18
+PHP Warning:  fopen(/var/data/1/.test2.txt.swp): failed to open stream: No such file or directory in /var/www/read_files1.php on line 18
+PHP Warning:  fopen(/var/data/1/.test.txt.swp): failed to open stream: No such file or directory in /var/www/read_files1.php on line 18
