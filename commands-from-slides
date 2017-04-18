@@ -1,0 +1,44 @@
+{{install influxdb}}
+wget https://dl.influxdata.com/influxdb/releases/influxdb_1.2.2_amd64.deb
+sudo dpkg -i influxdb_1.2.2_amd64.deb
+sudo service influxdb start
+sudo service influxd start
+
+influx
+
+SHOW DATABASES
+CREATE DATABASE metrics
+CREATE RETENTION POLICY twoweek ON metrics DURATION 14d REPLICATION 1 DEFAULT
+SHOW RETENTION POLICIES ON metrics
+ALTER RETENTION POLICY twoweek ON metrics DEFAULT
+SHOW RETENTION POLICIES ON metrics
+exit
+
+{{install telegraf}}
+curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+echo "deb https://repos.influxdata.com/debian jessie stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+sudo apt-get update
+sudo apt-get install telegraf
+
+telegraf -sample-config -input-filter udp_listener cpu system -output-filter influxdb > config.conf.new
+
+{{edit telegraf config.conf.new}}
+
+vi config.conf.new
+diff config.conf.new config.conf.final
+sudo cp config.conf.final /etc/telegraf/telegraf.conf
+
+sudo service telegraf start
+ps aux | grep telegraf
+
+{{install grafana}}
+echo "deb https://packagecloud.io/grafana/stable/debian/ jessie main" | sudo tee -a /etc/apt/sources.list
+curl https://packagecloud.io/gpg.key | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install grafana
+
+sudo vi /etc/grafana/grafana.ini
+
+{{update domain & root_url}}
+
+sudo service grafana-server start
